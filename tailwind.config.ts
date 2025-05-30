@@ -18,10 +18,14 @@ export default {
 			},
 		},
 		extend: {
+			fontFamily: {
+				lora: ["Lora", "serif"],
+			},
+
 			colors: {
-				primary: "#1dd881",
-				secondary: "#033333",
-				warning: "#ff523b",
+				primary: "#2B5388",
+				secondary: "#6A0DAD",
+				warning: "#FF0000",
 			},
 			keyframes: {
 				"accordion-down": {
