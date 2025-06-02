@@ -15,18 +15,24 @@ export default {
 			padding: "2rem",
 			screens: {
 				"2xl": "1400px",
+				"3xl": "1600px",
+				"4xl": "1900px",
+				"5xl": "2200px",
 			},
 		},
 		extend: {
 			fontFamily: {
 				lora: ["Lora", "serif"],
+				montserrat: ["Montserrat", "serif"],
 			},
 
 			colors: {
 				primary: "#2B5388",
+				"dark-blue": "#112C50",
 				secondary: "#6A0DAD",
 				warning: "#FF0000",
 			},
+
 			keyframes: {
 				"accordion-down": {
 					from: {
