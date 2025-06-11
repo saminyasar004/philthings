@@ -16,14 +16,33 @@
 
 	@keyframes circle {
 		0% {
+			/* Base value for mobile (below md) */
+			transform: rotate(0deg) translateX(24px) rotate(0deg);
+		}
+		100% {
+			/* Base value for mobile (below md) */
+			transform: rotate(360deg) translateX(24px) rotate(-360deg);
+		}
+	}
+
+	/* Base animation for mobile */
+	.animate-circle {
+		animation: circle 8s linear infinite;
+	}
+
+	/* Override translateX for desktop (md and above) */
+	@media (min-width: 768px) {
+		.animate-circle {
+			animation-name: circle-desktop;
+		}
+	}
+
+	@keyframes circle-desktop {
+		0% {
 			transform: rotate(0deg) translateX(46px) rotate(0deg);
 		}
 		100% {
 			transform: rotate(360deg) translateX(46px) rotate(-360deg);
 		}
-	}
-
-	.animate-circle {
-		animation: circle 8s linear infinite;
 	}
 }

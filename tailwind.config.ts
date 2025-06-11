@@ -30,7 +30,8 @@ export default {
 				primary: "#2B5388",
 				"dark-blue": "#112C50",
 				secondary: "#6A0DAD",
-				warning: "#FF0000",
+				danger: "#FF0000",
+				warning: "#FFD700",
 			},
 
 			keyframes: {
