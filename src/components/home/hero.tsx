@@ -4,29 +4,28 @@ import HeroEllipse from "@/assets/hero-bottom-sparkle-ellipse.svg";
 
 export default function Hero() {
 	return (
-		<section className="py-24">
+		<section className="py-12 md:py-24">
 			<div className="container relative">
-				<div className="grid grid-cols-2 gap-2">
-					<div className="flex flex-col gap-5 pt-12">
-						<h1 className="text-6xl font-bold text-primary leading-[84px]">
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
+					<div className="flex flex-col gap-5 items-center text-center lg:text-left lg:items-start md:pt-6 mb-12">
+						<h1 className="text-3xl md:text-6xl font-bold text-primary leading-[48px] md:leading-[84px]">
 							Your Personal{" "}
-							<span className="relative inline-flex border-2 border-secondary rounded-full w-24 h-24 items-center justify-center">
+							<span className="relative inline-flex border-2 border-secondary rounded-full w-12 h-12 md:w-24 md:h-24 items-center justify-center">
 								AI
-								<span className="absolute w-4 h-4 bg-secondary rounded-full animate-circle"></span>
+								<span className="absolute w-2 h-2 md:w-4 md:h-4 bg-secondary rounded-full animate-circle"></span>
 							</span>
 							<br /> Shopping Assistant
 						</h1>
 
-						<p className="text-lg font-montserrat text-[#373737] py-3">
+						<p className="w-[94%] text-base md:text-lg font-montserrat text-[#373737] py-2 md:py-3">
 							Get personalized product recommendations, shopping
-							advice, and <br /> more with our intelligent AI
-							chatbot.
+							advice, and more with our intelligent AI chatbot.
 						</p>
 
 						<Button>Get Started</Button>
 					</div>
 
-					<div className="z-10">
+					<div className="mt-0 md:mt-0 z-10">
 						<img src={HeroBanner} alt="hero-bg" className="" />
 						<img
 							src={HeroEllipse}

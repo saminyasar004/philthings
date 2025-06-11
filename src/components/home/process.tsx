@@ -5,7 +5,6 @@ import ProcessStep1 from "@/assets/process-step-1.svg";
 import ProcessStep2 from "@/assets/process-step-2.svg";
 import ProcessStep3 from "@/assets/process-step-3.svg";
 import ProcessStep4 from "@/assets/process-step-4.svg";
-import { cn } from "@/lib/utils";
 
 export default function Process() {
 	const processSteps = [
@@ -46,23 +45,23 @@ export default function Process() {
 	return (
 		<section className="py-24">
 			<div className="container">
-				<div className="w-full grid grid-cols-6 gap-8">
-					<div className="col-span-5">
+				<div className="w-full grid grid-cols-1 lg:grid-cols-6 gap-8">
+					<div className="md:col-span-5">
 						<SectionHeader
-							title="Process"
-							className="justify-start mb-14"
+							title="PROCESSES"
+							className="justify-center lg:justify-start mb-14"
 						/>
 
-						<div className="w-full flex flex-col items-start justify-center gap-3">
-							<h2 className="font-semibold text-5xl text-primary">
+						<div className="w-full flex flex-col items-center lg:items-start justify-center gap-3 text-center lg:text-left">
+							<h2 className="font-semibold text-3xl md:text-5xl text-primary">
 								How it works
 							</h2>
 
-							<p className="w-full font-montserrat text-xl text-[#373737] leading-relaxed">
+							<p className="w-full font-montserrat text-base md:text-lg text-[#373737] leading-relaxed">
 								Smart, Fast & Personalized Shopping with AI{" "}
 							</p>
 
-							<p className="w-5/6 font-montserrat text-xl text-[#373737] leading-relaxed mb-5">
+							<p className="w-full md:w-5/6 font-montserrat text-base md:text-lg text-[#373737] leading-relaxed mb-5">
 								Finding the right product has never been easier!
 								Just ask, and our AI instantly analyzes your
 								needs to recommend the best options. Whether
@@ -81,7 +80,7 @@ export default function Process() {
 					</div>
 				</div>
 
-				<div className="w-full grid grid-cols-4 gap-2 py-20">
+				<div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 py-20">
 					{processSteps.map((step, index) => (
 						<div className="flex flex-col gap-3" key={index}>
 							<div className="flex items-center justify-center">

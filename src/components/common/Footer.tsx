@@ -42,32 +42,37 @@ export default function Footer() {
 	];
 
 	return (
-		<footer className="bg-dark-blue text-white py-20">
-			<div className="container grid grid-cols-5">
-				<div className="logo col-span-2 flex flex-col gap-4">
+		<footer className="bg-dark-blue text-white py-10 lg:py-20">
+			<div className="container grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-4 text-center lg:text-left">
+				<div className="logo col-span-1 lg:col-span-2 flex flex-col gap-4 items-center lg:items-start">
 					<Link to="/">
-						<img className="w-28 h-28" src={Logo} alt="Logo" />
+						<img
+							className="w-20 h-20 lg:w-28 lg:h-28"
+							src={Logo}
+							alt="Logo"
+						/>
 					</Link>
 
-					<p className="text-lg font-normal">
-						Your personal AI shopping assistant that helps <br />{" "}
+					<p className="text-base lg:text-lg font-normal">
+						Your personal AI shopping assistant that helps{" "}
+						<br className="hidden lg:block" />
 						you find the perfect products.
 					</p>
 				</div>
 
 				{footerNavMenus.map((navSection, index) => (
 					<div
-						className="menu w-full flex flex-col gap-3"
+						className="menu w-full flex flex-col gap-3 items-center lg:items-start"
 						key={index}
 					>
-						<h5 className="font-medium text-2xl">
+						<h5 className="font-medium text-xl lg:text-2xl">
 							{navSection.title}
 						</h5>
 
-						<ul className="w-full flex flex-col gap-2 pt-2 text-base text-[#A2ADBB]">
+						<ul className="w-full flex flex-col gap-2 pt-2 text-sm lg:text-base text-[#A2ADBB]">
 							{navSection.links.map((navLink, index) => (
-								<li>
-									<Link to={navLink.path} key={index}>
+								<li key={index}>
+									<Link to={navLink.path}>
 										{navLink.name}
 									</Link>
 								</li>
@@ -76,18 +81,20 @@ export default function Footer() {
 					</div>
 				))}
 
-				<div className="flex flex-col gap-4">
-					<h5 className="font-medium text-2xl">Subscribe</h5>
+				<div className="flex flex-col gap-4 items-center lg:items-start">
+					<h5 className="font-medium text-xl lg:text-2xl">
+						Subscribe
+					</h5>
 
-					<div className="flex gap-0 items-center justify-start">
+					<div className="flex gap-0 items-center justify-center lg:justify-start w-full">
 						<Input
 							type="email"
 							name="email"
-							className="h-14 pl-6 w-3/4 rounded-r-none outline-none border-none right-0 text-primary focus:ring-0 focus:border-0 focus:outline-none font-montserrat font-medium"
+							className="h-12 lg:h-14 pl-4 lg:pl-6 w-3/4 rounded-r-none outline-none border-none text-primary focus:ring-0 focus:border-0 focus:outline-none font-montserrat font-medium text-sm lg:text-base"
 							placeholder="Email address"
 						/>
-						<button className="bg-primary flex items-center justify-center px-4 h-14 rounded-r-md">
-							<MoveRight size={30} />
+						<button className="bg-primary flex items-center justify-center px-3 lg:px-4 h-12 lg:h-14 rounded-r-md">
+							<MoveRight size={24} className="lg:w-30 lg:h-30" />
 						</button>
 					</div>
 				</div>

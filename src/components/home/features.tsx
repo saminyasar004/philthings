@@ -50,26 +50,26 @@ export default function Features() {
 	return (
 		<section className="py-24">
 			<div className="container relative overflow-hidden py-14">
-				<SectionHeader className="mb-7" title="Features" />
+				<SectionHeader className="mb-7" title="FEATURES" />
 
-				<div className="w-full flex flex-col items-center justify-center gap-6">
-					<h2 className="font-semibold text-5xl text-primary">
+				<div className="w-full flex flex-col items-center justify-center gap-3 md:gap-6 text-center">
+					<h2 className="font-semibold text-3xl md:text-5xl text-primary">
 						Discover the Power of AI Chat
 					</h2>
 
-					<p className="w-1/3 text-center font-montserrat text-xl text-[#373737] leading-relaxed">
+					<p className="lg:w-1/3 text-center font-montserrat text-base md:text-lg text-[#373737] leading-relaxed">
 						Our AI chatbot comes packed with features to enhance
 						your shopping experience.
 					</p>
 				</div>
 
-				<div className="grid grid-cols-3 gap-8 py-10">
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-10">
 					{features.map((feature, index) => (
 						<div
 							key={index}
 							className="bg-white flex flex-col gap-3 items-center justify-center rounded-xl p-5 py-10 border border-[#DEDEDE]"
 						>
-							<div className="w-full flex items-center justify-center py-5">
+							<div className="w-full flex items-center justify-center py-5 text-center">
 								<img
 									src={feature.icon}
 									alt="feature-icon"
@@ -77,7 +77,7 @@ export default function Features() {
 								/>
 							</div>
 
-							<h4 className="text-2xl font-bold text-primary">
+							<h4 className="text-2xl font-bold text-primary text-center">
 								{feature.title}
 							</h4>
 
@@ -90,7 +90,7 @@ export default function Features() {
 				<img
 					src={SectionBGVector}
 					alt="feature-section-bg-vector"
-					className="absolute top-5 -right-[40rem] w-full h-full -z-10"
+					className="absolute top-5 right-0 lg:-right-[40rem] w-full h-full -z-10"
 				/>
 			</div>
 		</section>
