@@ -1,4 +1,4 @@
-import SectionHeader from "@/components/common/section-header";
+import SectionHeader from "@/components/common/SectionHeader";
 import AIChatBotOverviewBanner from "@/assets/ai-chatbot-overview-banner.svg";
 
 export default function AIChatOverview() {

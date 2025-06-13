@@ -1,4 +1,4 @@
-import SectionHeader from "@/components/common/section-header";
+import SectionHeader from "@/components/common/SectionHeader";
 import AiChatBotIcon from "@/assets/ai-chatbot-icon.svg";
 import AffiliateLinkIcon from "@/assets/affiliate-link-icon.svg";
 import MemoryContextIcon from "@/assets/memory-context-icon.svg";

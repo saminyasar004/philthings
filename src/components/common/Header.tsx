@@ -53,8 +53,12 @@ export default function Header() {
 					</ul>
 				</div>
 				<div className="auth-menu hidden lg:flex items-center justify-end gap-4">
-					<Button variant="transparent">Sign UP</Button>
-					<Button>Login</Button>
+					<Link to="/signup">
+						<Button variant="transparent">Sign UP</Button>
+					</Link>
+					<Link to="/login">
+						<Button>Login</Button>
+					</Link>
 				</div>
 
 				{/* Mobile Menu Toggle */}

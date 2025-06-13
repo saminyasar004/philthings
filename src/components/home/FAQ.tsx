@@ -1,5 +1,5 @@
 import SectionBGVector from "@/assets/faq-section-robot.svg";
-import SectionHeader from "@/components/common/section-header";
+import SectionHeader from "@/components/common/SectionHeader";
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";

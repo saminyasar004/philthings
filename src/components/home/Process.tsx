@@ -1,4 +1,4 @@
-import SectionHeader from "@/components/common/section-header";
+import SectionHeader from "@/components/common/SectionHeader";
 import { Button } from "@/components/ui/button";
 import ProcessVector from "@/assets/process-section-question-vector.svg";
 import ProcessStep1 from "@/assets/process-step-1.svg";

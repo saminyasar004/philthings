@@ -1,11 +1,11 @@
-import AIChatOverview from "@/components/home/ai-chat-overview";
-import CTA from "@/components/home/cta";
-import Faq from "@/components/home/faq";
-import Features from "@/components/home/features";
-import Hero from "@/components/home/hero";
-import Pricing from "@/components/home/pricing";
-import Process from "@/components/home/process";
-import Testimonial from "@/components/home/testimonial";
+import AIChatOverview from "@/components/home/AIChatOverview";
+import CTA from "@/components/home/CTA";
+import Faq from "@/components/home/FAQ";
+import Features from "@/components/home/Features";
+import Hero from "@/components/home/Hero";
+import Pricing from "@/components/home/Pricing";
+import Process from "@/components/home/Process";
+import Testimonial from "@/components/home/Testimonial";
 
 export default function Home() {
 	return (

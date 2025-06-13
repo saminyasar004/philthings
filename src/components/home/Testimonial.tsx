@@ -1,4 +1,4 @@
-import SectionHeader from "@/components/common/section-header";
+import SectionHeader from "@/components/common/SectionHeader";
 import {
 	Carousel,
 	CarouselContent,
@@ -86,8 +86,6 @@ export default function Testimonial() {
 						opts={{
 							loop: true,
 							duration: 500,
-							// autoplay: true,
-							// autoplaySpeed: 5000,
 						}}
 						className="w-full max-w-4xl mx-auto"
 					>

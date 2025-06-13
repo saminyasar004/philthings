@@ -1,4 +1,4 @@
-import SectionHeader from "@/components/common/section-header";
+import SectionHeader from "@/components/common/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { CheckCircleIcon, CircleX } from "lucide-react";
 import CrownImg from "@/assets/crown.svg";
