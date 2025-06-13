@@ -11,6 +11,9 @@ import CreateNewPassword from "@/pages/auth/user/CreateNewPassword";
 import PasswordChanged from "@/pages/auth/user/PasswordChanged";
 import RecoverPassword from "@/pages/auth/admin/RecoverPassword";
 import SetNewPassword from "@/pages/auth/admin/SetNewPassword";
+import Chat from "@/pages/chat";
+import ChatLayout from "@/components/common/ChatLayout";
+import NewChat from "@/pages/chat/new";
 
 export const routes = [
 	{
@@ -60,6 +63,21 @@ export const routes = [
 		path: "/password-changed",
 		element: <PasswordChanged />,
 		layout: AuthLayout,
+	},
+	{
+		path: "/chat/:id",
+		element: <Chat />,
+		layout: ChatLayout,
+	},
+	{
+		path: "/chat",
+		element: <NewChat />,
+		layout: ChatLayout,
+	},
+	{
+		path: "/chat/new",
+		element: <NewChat />,
+		layout: ChatLayout,
 	},
 	{
 		path: "*",
