@@ -1,10 +1,7 @@
 import { ChatSidebar } from "@/components/chat-sidebar";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { useState } from "react";
-import { cn } from "@/lib/utils";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { MoveUp } from "lucide-react";
 
 export default function ChatLayout({
@@ -12,8 +9,6 @@ export default function ChatLayout({
 }: {
 	children: React.ReactNode;
 }) {
-	const [inputMessage, setInputMessage] = useState("");
-
 	return (
 		<SidebarProvider className="h-screen relative">
 			<ChatSidebar />
