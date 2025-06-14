@@ -1,0 +1,197 @@
+import Logo from "@/assets/logo.svg";
+import UserPlaceholder from "@/assets/user-placeholder.png";
+import {
+	AlertDialog,
+	AlertDialogAction,
+	AlertDialogCancel,
+	AlertDialogContent,
+	AlertDialogDescription,
+	AlertDialogFooter,
+	AlertDialogHeader,
+	AlertDialogTitle,
+	AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/button";
+import {
+	Sidebar,
+	SidebarContent,
+	SidebarFooter,
+	SidebarGroup,
+	SidebarGroupContent,
+	SidebarHeader,
+	SidebarMenu,
+	SidebarMenuButton,
+	SidebarMenuItem,
+	SidebarMenuSub,
+	SidebarMenuSubButton,
+	SidebarMenuSubItem,
+} from "@/components/ui/sidebar";
+import { ChevronDown, LogOut } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { Separator } from "./ui/separator";
+import {
+	Collapsible,
+	CollapsibleContent,
+	CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+
+// Define the type for sidebar items based on the provided sidebarMenuItems structure
+interface SidebarItem {
+	title: string;
+	header: string;
+	description: string;
+	url: string;
+	icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+	children?: {
+		title: string;
+		header: string;
+		description: string;
+		url: string;
+		icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+	}[];
+}
+
+export function AdminDashboardSidebar({ items }: { items: SidebarItem[] }) {
+	const location = useLocation();
+	console.log(location.pathname);
+	console.log(items[0].url === location.pathname);
+
+	return (
+		<Sidebar className="bg-primary min-h-screen">
+			<SidebarContent className="min-h-screen hide-scrollbar">
+				<SidebarHeader className="min-h-max h-[10vh]">
+					<div className="w-full flex items-center justify-center py-4">
+						<Link to="/">
+							<img src={Logo} alt="Logo" className="max-w-full" />
+						</Link>
+					</div>
+				</SidebarHeader>
+
+				<Separator className="w-full bg-white" />
+
+				<SidebarGroup className="min-h-[40vh] overflow-y-auto hide-scrollbar mb-4 pt-4 pb-16">
+					<SidebarGroupContent>
+						<SidebarMenu>
+							{items.map((item) => (
+								<SidebarMenuItem key={item.title}>
+									{item.children &&
+									item.children.length > 0 ? (
+										<Collapsible
+											defaultOpen
+											className="group/collapsible"
+										>
+											<CollapsibleTrigger asChild>
+												<SidebarMenuButton className="hover:bg-[#567eb4] hover:text-white transition-all duration-300 focus-visible:bg-[#567eb4] focus-visible:text-white data-[state=open]:hover:bg-[#567eb4] data-[state=open]:hover:text-white data-[active=true]:bg-[#567eb4] data-[active=true]:text-white">
+													<item.icon />
+													<span>{item.title}</span>
+													<ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+												</SidebarMenuButton>
+											</CollapsibleTrigger>
+											<CollapsibleContent>
+												<SidebarMenuSub>
+													{item.children.map(
+														(child) => (
+															<SidebarMenuSubItem
+																key={
+																	child.title
+																}
+															>
+																<SidebarMenuSubButton
+																	asChild
+																	isActive={
+																		item.url ===
+																		location.pathname
+																	}
+																>
+																	<Link
+																		to={
+																			child.url
+																		}
+																		className="hover:bg-[#567eb4] hover:text-white transition-all duration-300"
+																	>
+																		{child.icon && (
+																			<child.icon />
+																		)}
+																		<span>
+																			{
+																				child.title
+																			}
+																		</span>
+																	</Link>
+																</SidebarMenuSubButton>
+															</SidebarMenuSubItem>
+														)
+													)}
+												</SidebarMenuSub>
+											</CollapsibleContent>
+										</Collapsible>
+									) : (
+										<SidebarMenuButton
+											asChild
+											className="hover:bg-[#567eb4] data-[active=true]:bg-[#567eb4] data-[active=true]:text-white hover:text-white transition-all duration-300"
+											isActive={
+												item.url === location.pathname
+											}
+										>
+											<Link to={item.url}>
+												<item.icon />
+												<span>{item.title}</span>
+											</Link>
+										</SidebarMenuButton>
+									)}
+								</SidebarMenuItem>
+							))}
+						</SidebarMenu>
+					</SidebarGroupContent>
+				</SidebarGroup>
+
+				<SidebarFooter className="w-full min-h-max h-[5vh] flex flex-col items-end justify-end absolute bottom-0 py-4 space-y-24 bg-[#284468]">
+					<div className="w-full flex gap-2 items-center justify-between">
+						<div className="flex-1 flex items-center gap-2 px-4">
+							<img
+								src={UserPlaceholder}
+								alt="User Avatar"
+								className="max-w-full rounded-full"
+							/>
+							<h5 className="text-sm font-medium">Pappu Don</h5>
+						</div>
+
+						<AlertDialog>
+							<AlertDialogTrigger asChild>
+								<Button
+									variant="ghost"
+									size="icon"
+									className="border-none hover:bg-transparent text-white/80 hover:text-white text-4xl"
+								>
+									<LogOut />
+								</Button>
+							</AlertDialogTrigger>
+							<AlertDialogContent>
+								<AlertDialogHeader>
+									<AlertDialogTitle>
+										Leave the site?
+									</AlertDialogTitle>
+									<AlertDialogDescription>
+										Are you sure you want to log out? You
+										will be signed out of your account, and
+										any unsaved changes may be lost. You can
+										log back in anytime with your
+										credentials.
+									</AlertDialogDescription>
+								</AlertDialogHeader>
+								<AlertDialogFooter>
+									<AlertDialogCancel>
+										Cancel
+									</AlertDialogCancel>
+									<AlertDialogAction className="bg-danger text-white border-danger hover:text-danger">
+										Continue
+									</AlertDialogAction>
+								</AlertDialogFooter>
+							</AlertDialogContent>
+						</AlertDialog>
+					</div>
+				</SidebarFooter>
+			</SidebarContent>
+		</Sidebar>
+	);
+}
