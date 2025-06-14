@@ -1,19 +1,26 @@
+import AdminLayout from "@/components/common/AdminLayout";
 import AuthLayout from "@/components/common/AuthLayout";
+import ChatLayout from "@/components/common/ChatLayout";
 import Layout from "@/components/common/Layout";
+import AffiliateLinks from "@/pages/admin/AffiliateLinks";
+import AdminDashboard from "@/pages/admin/Dashboard";
+import Notification from "@/pages/admin/Notification";
+import PrivacyPolicy from "@/pages/admin/PrivacyPolicy";
+import Subscriptions from "@/pages/admin/Subscriptions";
+import Users from "@/pages/admin/Users";
 import AdminLogin from "@/pages/auth/admin/Login";
-import ForgotPassword from "@/pages/auth/user/ForgotPassword";
-import Home from "@/pages/Home";
-import Login from "@/pages/auth/user/Login";
-import NotFound from "@/pages/NotFound";
-import Signup from "@/pages/auth/user/Signup";
-import VerifyOTP from "@/pages/auth/user/VerifyOTP";
-import CreateNewPassword from "@/pages/auth/user/CreateNewPassword";
-import PasswordChanged from "@/pages/auth/user/PasswordChanged";
 import RecoverPassword from "@/pages/auth/admin/RecoverPassword";
 import SetNewPassword from "@/pages/auth/admin/SetNewPassword";
+import CreateNewPassword from "@/pages/auth/user/CreateNewPassword";
+import ForgotPassword from "@/pages/auth/user/ForgotPassword";
+import Login from "@/pages/auth/user/Login";
+import PasswordChanged from "@/pages/auth/user/PasswordChanged";
+import Signup from "@/pages/auth/user/Signup";
+import VerifyOTP from "@/pages/auth/user/VerifyOTP";
 import Chat from "@/pages/chat";
-import ChatLayout from "@/components/common/ChatLayout";
-import NewChat from "@/pages/chat/new";
+import NewChat from "@/pages/chat/New";
+import Home from "@/pages/Home";
+import NotFound from "@/pages/NotFound";
 
 export const routes = [
 	{
@@ -33,6 +40,36 @@ export const routes = [
 	{
 		path: "/set-new-password",
 		element: <SetNewPassword />,
+	},
+	{
+		path: "/dashboard",
+		element: <AdminDashboard />,
+		layout: AdminLayout,
+	},
+	{
+		path: "/users",
+		element: <Users />,
+		layout: AdminLayout,
+	},
+	{
+		path: "/affiliate-links",
+		element: <AffiliateLinks />,
+		layout: AdminLayout,
+	},
+	{
+		path: "/subscriptions",
+		element: <Subscriptions />,
+		layout: AdminLayout,
+	},
+	{
+		path: "/notification",
+		element: <Notification />,
+		layout: AdminLayout,
+	},
+	{
+		path: "/settings/privacy-policy",
+		element: <PrivacyPolicy />,
+		layout: AdminLayout,
 	},
 	{
 		path: "/login",
