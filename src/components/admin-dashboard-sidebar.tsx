@@ -97,6 +97,7 @@ export function AdminDashboardSidebar({ items }: { items: SidebarItem[] }) {
 																}
 															>
 																<SidebarMenuSubButton
+																	className="hover:bg-[#567eb4] hover:text-white transition-all duration-300 focus-visible:bg-[#567eb4] focus-visible:text-white data-[state=open]:hover:bg-[#567eb4] data-[state=open]:hover:text-white data-[active=true]:bg-[#567eb4] data-[active=true]:text-white"
 																	asChild
 																	isActive={
 																		item.url ===
