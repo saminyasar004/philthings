@@ -34,27 +34,14 @@ import {
 	CollapsibleContent,
 	CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import { AdminSidebarItemProps } from "./common/AdminLayout";
 
-// Define the type for sidebar items based on the provided sidebarMenuItems structure
-interface SidebarItem {
-	title: string;
-	header: string;
-	description: string;
-	url: string;
-	icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-	children?: {
-		title: string;
-		header: string;
-		description: string;
-		url: string;
-		icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-	}[];
-}
-
-export function AdminDashboardSidebar({ items }: { items: SidebarItem[] }) {
+export function AdminDashboardSidebar({
+	items,
+}: {
+	items: AdminSidebarItemProps[];
+}) {
 	const location = useLocation();
-	console.log(location.pathname);
-	console.log(items[0].url === location.pathname);
 
 	return (
 		<Sidebar className="bg-primary min-h-screen">
@@ -148,14 +135,18 @@ export function AdminDashboardSidebar({ items }: { items: SidebarItem[] }) {
 
 				<SidebarFooter className="w-full min-h-max h-[5vh] flex flex-col items-end justify-end absolute bottom-0 py-4 space-y-24 bg-[#284468]">
 					<div className="w-full flex gap-2 items-center justify-between">
-						<div className="flex-1 flex items-center gap-2 px-4">
-							<img
-								src={UserPlaceholder}
-								alt="User Avatar"
-								className="max-w-full rounded-full"
-							/>
-							<h5 className="text-sm font-medium">Pappu Don</h5>
-						</div>
+						<Link to="/profile">
+							<div className="flex-1 flex items-center gap-2 px-4">
+								<img
+									src={UserPlaceholder}
+									alt="User Avatar"
+									className="max-w-full rounded-full"
+								/>
+								<h5 className="text-sm font-medium">
+									Pappu Don
+								</h5>
+							</div>
+						</Link>
 
 						<AlertDialog>
 							<AlertDialogTrigger asChild>

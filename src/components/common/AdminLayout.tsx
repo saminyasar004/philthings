@@ -11,6 +11,16 @@ import { Link, useLocation } from "react-router-dom";
 import { AdminDashboardSidebar } from "../admin-dashboard-sidebar";
 import { useEffect, useState } from "react";
 
+export interface AdminSidebarItemProps {
+	title: string;
+	header: string;
+	description: string;
+	url: string;
+	icon?: React.ComponentType<{ className?: string }>;
+	isSidebar: boolean;
+	children?: AdminSidebarItemProps[];
+}
+
 export default function AdminLayout({
 	children,
 }: {
@@ -18,7 +28,7 @@ export default function AdminLayout({
 }) {
 	const location = useLocation();
 	// Menu items.
-	const sidebarMenuItems = [
+	const sidebarMenuItems: AdminSidebarItemProps[] = [
 		{
 			title: "Dashboard",
 			header: "Good morning, pappu",
@@ -65,12 +75,14 @@ export default function AdminLayout({
 					header: "Privacy Policy",
 					description: "",
 					url: "/settings/privacy-policy",
+					isSidebar: true,
 				},
 				{
 					title: "Terms and Condition",
 					header: "Terms & Condition",
 					description: "",
 					url: "/settings/terms-and-condition",
+					isSidebar: true,
 				},
 			],
 		},
@@ -84,15 +96,33 @@ export default function AdminLayout({
 		},
 	];
 
-	const [currentItem, setCurrentItem] = useState(sidebarMenuItems[0]);
-
-	console.log(location.pathname);
+	const [currentItem, setCurrentItem] = useState<
+		AdminSidebarItemProps | undefined
+	>(undefined);
 
 	useEffect(() => {
-		setCurrentItem(
-			sidebarMenuItems.find((item) => item.url === location.pathname)
-		);
-		console.log(currentItem);
+		const findCurrentItem = () => {
+			return sidebarMenuItems.find((item) => {
+				if (item?.children?.length) {
+					const childMatch = item.children.find(
+						(child) => child.url === location.pathname
+					);
+					if (childMatch) {
+						return childMatch;
+					}
+				} else {
+					return item.url === location.pathname;
+				}
+			});
+		};
+
+		const newCurrentItem = findCurrentItem();
+		if (newCurrentItem) {
+			setCurrentItem(newCurrentItem);
+		} else {
+			// Fallback to a default item if no match (e.g., Dashboard)
+			setCurrentItem(sidebarMenuItems[0]);
+		}
 	}, [location.pathname]);
 
 	return (
@@ -106,26 +136,30 @@ export default function AdminLayout({
 					<div className="header w-full flex items-center justify-between pb-6">
 						<div className="header space-y-2">
 							<h1 className="font-semibold text-3xl text-primary">
-								{currentItem?.header}
+								{(currentItem?.children &&
+									currentItem?.children.find(
+										(child) =>
+											child.url === location.pathname
+									)?.header) ||
+									currentItem?.header}
 							</h1>
-
-							{currentItem?.description.length > 0 && (
-								<p className="text-[#2A2A2A] font-montserrat text-sm">
-									{currentItem?.description}
-								</p>
-							)}
+							{currentItem?.description &&
+								currentItem.description.length > 0 && (
+									<p className="text-[#2A2A2A] font-montserrat text-sm">
+										{currentItem.description}
+									</p>
+								)}
 						</div>
-
-						<Link to="/notification">
-							<div className="w-full flex items-center justify-center gap-1">
-								<Bell className="text-primary" />
-								<span className="p-2 px-3 text-black font-lora font-medium rounded-lg bg-[#F9F9F9]">
-									12
-								</span>
-							</div>
+						<Link
+							to="/notification"
+							className="flex items-center gap-2 p-2 rounded-lg bg-[#F9F9F9] hover:bg-gray-100 transition-colors"
+						>
+							<Bell className="text-primary" />
+							<span className="text-black font-lora font-medium">
+								12
+							</span>
 						</Link>
 					</div>
-
 					{children}
 				</div>
 			</main>

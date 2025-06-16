@@ -7,8 +7,10 @@ import AdminDashboard from "@/pages/admin/Dashboard";
 import Notification from "@/pages/admin/Notification";
 import PrivacyPolicy from "@/pages/admin/PrivacyPolicy";
 import Subscriptions from "@/pages/admin/Subscriptions";
+import TermsnCondition from "@/pages/admin/TermsnCondition";
 import Users from "@/pages/admin/Users";
 import AdminLogin from "@/pages/auth/admin/Login";
+import Profile from "@/pages/auth/admin/Profile";
 import RecoverPassword from "@/pages/auth/admin/RecoverPassword";
 import SetNewPassword from "@/pages/auth/admin/SetNewPassword";
 import CreateNewPassword from "@/pages/auth/user/CreateNewPassword";
@@ -70,6 +72,16 @@ export const routes = [
 		path: "/settings/privacy-policy",
 		element: <PrivacyPolicy />,
 		layout: AdminLayout,
+	},
+	{
+		path: "/settings/terms-and-condition",
+		element: <TermsnCondition />,
+		layout: AdminLayout,
+	},
+	{
+		path: "/profile",
+		element: <Profile />,
+		layout: AuthLayout,
 	},
 	{
 		path: "/login",
