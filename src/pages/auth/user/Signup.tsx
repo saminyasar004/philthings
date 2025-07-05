@@ -5,10 +5,14 @@ import { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/redux/store";
 
 export default function Signup() {
 	const [isHidePassword, setIsHidePassword] = useState(false);
 	const [isHideConfirmPassword, setIsHideConfirmPassword] = useState(false);
+
+	const dispatch = useDispatch<AppDispatch>();
 
 	return (
 		<div className="max-w-3xl h-svh flex flex-col items-start justify-center gap-5">
